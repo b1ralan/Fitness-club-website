@@ -9,7 +9,8 @@ window.addEventListener('DOMContentLoaded', () => {
       callbackForm = document.getElementById('callback_form'),
       popupGift = document.getElementById('gift'),
       hiddenSmall = document.querySelectorAll('li > a '),
-      popupMenu = document.querySelector('.popup-menu');
+      popupMenu = document.querySelector('.popup-menu'),
+      toTop = document.getElementById('totop');
 
     function disableScroll() {
       bodyDelegate.classList.add('no-scroll');
@@ -55,6 +56,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     bodyDelegate.addEventListener('click', (event) => {
       console.log(event.target);
+      // ВЫбор клуба
       if (event.target.closest('.clubs-list')) {
         handlerClubList();
       } else if (
@@ -63,6 +65,7 @@ window.addEventListener('DOMContentLoaded', () => {
       ) {
         ulList.style.display = 'none';
       }
+      // Записаться на беплатный визит
       if (event.target.closest('.open-popup')) {
         handlerPopupVisit();
         disableScroll();
@@ -73,6 +76,7 @@ window.addEventListener('DOMContentLoaded', () => {
         freeVisitForm.style.display = 'none';
         enableScroll();
       }
+      // Перезвоните мне
       if (event.target.closest('.callback-btn')) {
         handlerCallback();
         disableScroll();
@@ -83,6 +87,7 @@ window.addEventListener('DOMContentLoaded', () => {
         callbackForm.style.display = 'none';
         enableScroll();
       }
+      // Подарок
       if (event.target.closest('.fixed-gift')) {
         handlerGift();
         disableScroll();
@@ -94,6 +99,7 @@ window.addEventListener('DOMContentLoaded', () => {
         popupGift.style.display = 'none';
         enableScroll();
       }
+      // Плавный скрол из меню навигации
       if (event.target.closest('.scroll')) {
         event.preventDefault();
         hiddenSmall.forEach((elem) => {
@@ -106,32 +112,104 @@ window.addEventListener('DOMContentLoaded', () => {
             });
           }
         });
-        return;
       }
+      // Закртыие бургер меню
       if (event.target.closest('[src="images/menu-button.png"]')) {
         popupMenu.style.display = 'flex';
       } else if (
         event.target.closest('.close-menu-btn') ||
-        event.target.matches('.scroll')
+        event.target.closest('.scroll')
       ) {
         popupMenu.style.display = 'none';
       }
     });
-  };
 
-  const stickyFunction = () => {
-    const navbar = document.getElementById('navbar');
-    const sticky = navbar.offsetTop;
-    if (window.pageYOffset >= sticky && window.innerWidth < 768) {
-      navbar.classList.add('sticky');
-    } else {
-      navbar.classList.remove('sticky');
-    }
-  };
+    const stickyFunction = () => {
+      const navbar = document.getElementById('navbar');
+      if (window.pageYOffset >= 180 && window.innerWidth < 768) {
+        navbar.classList.add('menu-fix');
+      } else {
+        navbar.classList.remove('menu-fix');
+      }
+    };
 
-  window.onscroll = function () {
-    stickyFunction();
+    window.onscroll = function () {
+      stickyFunction();
+    };
+
+    const scrollUp = () => {
+      function trackScroll() {
+        let scrolled = window.pageYOffset;
+        let coords = document.documentElement.clientHeight;
+
+        if (scrolled > coords) {
+          toTop.style.display = 'block';
+        }
+        if (scrolled < coords) {
+          toTop.style.display = 'none';
+        }
+      }
+      window.addEventListener('scroll', trackScroll);
+      toTop.addEventListener('click', (event) => {
+        event.stopPropagation();
+        event.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      });
+    };
+    scrollUp();
   };
 
   toogleMenu();
 });
+
+// sliders
+
+const sliders = () => {
+  'use strict';
+  const mainSlider = document.querySelectorAll('.main-slide'),
+    gallerySlider = document.querySelectorAll('.g-slider');
+
+  let currentSlide = 0,
+    currentMainSlide = 0,
+    interval,
+    intervalSlider;
+
+  const prevSlide = (elem, index) => {
+    elem[index].style.display = 'none';
+  };
+
+  const nextSlide = (elem, index) => {
+    elem[index].style.display = 'flex';
+  };
+
+  const autoPlayMainSlider = () => {
+    prevSlide(mainSlider, currentMainSlide);
+    currentMainSlide++;
+    if (currentMainSlide >= mainSlider.length) {
+      currentMainSlide = 0;
+    }
+    nextSlide(mainSlider, currentMainSlide);
+  };
+
+  const autoPlaySlider = () => {
+    prevSlide(gallerySlider, currentSlide);
+    currentSlide++;
+    if (currentSlide >= gallerySlider.length) {
+      currentSlide = 0;
+    }
+    nextSlide(gallerySlider, currentSlide);
+  };
+  const startMainSlide = (time = 3000) => {
+    interval = setInterval(autoPlayMainSlider, time);
+  };
+  const stratSlider = (time = 3000) => {
+    intervalSlider = setInterval(autoPlaySlider, time);
+  };
+  startMainSlide(3000);
+  stratSlider(5000);
+};
+
+sliders();

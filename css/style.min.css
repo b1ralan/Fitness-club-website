@@ -811,15 +811,10 @@ button {
 .hidden-large {
   display: none;
 }
-.sticky {
-  position: fixed;
-  display: inline;
-  top: 0;
-  width: 100%;
-}
 .menu-fix {
   position: fixed;
-  top: 0;
+  opacity: 0.8;
+  top: 20px;
   left: 0;
   width: 100vw;
   z-index: 100;
@@ -1801,7 +1796,7 @@ footer .footer-bottom .right .socials .social-icon:hover a {
   z-index: 200;
   font-size: 28px;
   color: #1e1c34;
-  display: block;
+  /* display: block; */
   width: 35px;
   height: 35px;
   background-color: #ffd11a;
