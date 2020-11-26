@@ -751,11 +751,9 @@ body {
 body {
   overflow-x: hidden;
 }
-body.no-scroll {
+.no-scroll {
   height: 100%;
   width: 100%;
-  left: 0;
-  top: 0;
   position: fixed;
   overflow: hidden;
 }
@@ -812,6 +810,12 @@ button {
 }
 .hidden-large {
   display: none;
+}
+.sticky {
+  position: fixed;
+  display: inline;
+  top: 0;
+  width: 100%;
 }
 .menu-fix {
   position: fixed;
