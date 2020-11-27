@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="./script/script.js" defer></script>
+    <script src="./dist/main.js" defer></script>
     <title>Сеть фитнес клубов Тело</title>
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic"
@@ -328,20 +328,29 @@
       <div class="gallery-bg">
         <div class="wrapper">
           <div class="gallery-slider">
-            <div class="slide g-slider">
+            <div class="slide gallery-slider">
               <img src="images/gallery/photo1.jpg" alt="" />
             </div>
-            <div class="slide g-slider" style="display: none">
+            <div class="slide gallery-slider" style="display: none">
               <img src="images/gallery/photo2.jpg" alt="" />
             </div>
-            <div class="slide g-slider" style="display: none">
+            <div class="slide gallery-slider" style="display: none">
               <img src="images/gallery/photo3.jpg" alt="" />
             </div>
-            <div class="slide g-slider" style="display: none">
+            <div class="slide gallery-slider" style="display: none">
               <img src="images/gallery/photo4.jpg" alt="" />
             </div>
-            <div class="slide g-slider" style="display: none">
+            <div class="slide gallery-slider" style="display: none">
               <img src="images/gallery/photo5.jpg" alt="" />
+            </div>
+            <ul class="slider-dots">
+              <button class="slider-dots"></button>
+            </ul>
+            <div class="slider-arrow prev">
+              <span><</span>
+            </div>
+            <div class="slider-arrow next">
+              <span>></span>
             </div>
           </div>
         </div>
@@ -398,15 +407,10 @@
               </div>
               <div class="price">
                 <div class="price-message input-text">
-                  <input
-                    name="name"
-                    type="text"
-                    required
-                    placeholder="Промокод"
-                  />
+                  <input name="name" type="text" placeholder="Промокод" />
                 </div>
                 <div class="price-message">Цена:</div>
-                <div class="price-message" id="price-total">2999</div>
+                <div class="price-message" id="price-total">3600</div>
               </div>
               <input type="hidden" name="form_name" value="Заказать карту" />
               <p class="input-text">
