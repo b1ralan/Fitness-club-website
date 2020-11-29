@@ -3,7 +3,9 @@
 import toggleMenu from './modules/toggleMenu';
 import mainSliders from './modules/mainSlider';
 import carousel from './modules/carousel';
-import calcClubCards from './modules/calcClubCards';
+import footer from './modules/footer';
+import galleryPhoto from './modules/galleryPhoto';
+import clubCards from './modules/clubCards';
 
 //toggle Menu
 toggleMenu();
@@ -16,6 +18,15 @@ mainSliders();
 
 carousel();
 
+// galleryPhoto
+
+galleryPhoto();
+
 // calc
 
-calcClubCards();
+// calcClubCards();
+clubCards();
+
+// footer
+
+footer();

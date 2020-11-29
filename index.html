@@ -328,30 +328,32 @@
       <div class="gallery-bg">
         <div class="wrapper">
           <div class="gallery-slider">
-            <div class="slide gallery-slider">
+            <div class="gallery-slide gallery-slide-active">
               <img src="images/gallery/photo1.jpg" alt="" />
             </div>
-            <div class="slide gallery-slider" style="display: none">
+            <div class="gallery-slide">
               <img src="images/gallery/photo2.jpg" alt="" />
             </div>
-            <div class="slide gallery-slider" style="display: none">
+            <div class="gallery-slide">
               <img src="images/gallery/photo3.jpg" alt="" />
             </div>
-            <div class="slide gallery-slider" style="display: none">
+            <div class="gallery-slide">
               <img src="images/gallery/photo4.jpg" alt="" />
             </div>
-            <div class="slide gallery-slider" style="display: none">
+            <div class="gallery-slide">
               <img src="images/gallery/photo5.jpg" alt="" />
             </div>
-            <ul class="slider-dots">
-              <button class="slider-dots"></button>
-            </ul>
-            <div class="slider-arrow prev">
-              <span><</span>
+            <div class="slider-arrow prev" id="arrow-left">
+              <span>
+                <img src="./images/arrow-left.png" />
+              </span>
             </div>
-            <div class="slider-arrow next">
-              <span>></span>
+            <div class="slider-arrow next" id="arrow-right">
+              <span>
+                <img src="./images/arrow-right.png" />
+              </span>
             </div>
+            <ul class="slider-dots"></ul>
           </div>
         </div>
       </div>
@@ -407,10 +409,15 @@
               </div>
               <div class="price">
                 <div class="price-message input-text">
-                  <input name="name" type="text" placeholder="Промокод" />
+                  <input
+                    id="promo"
+                    name="name"
+                    type="text"
+                    placeholder="Промокод"
+                  />
                 </div>
                 <div class="price-message">Цена:</div>
-                <div class="price-message" id="price-total">3600</div>
+                <div class="price-message" id="price-total" value="1">1999</div>
               </div>
               <input type="hidden" name="form_name" value="Заказать карту" />
               <p class="input-text">
@@ -686,7 +693,7 @@
         </div>
         <div class="form-content">
           <h4>У нас для вас есть подарок!</h4>
-          <p>Введите промо-код ТЕЛО2019 и получите скидку 30%</p>
+          <p>Введите промо-код ТЕЛО2020 и получите скидку 30%</p>
           <button class="btn close-btn">OK</button>
         </div>
       </div>

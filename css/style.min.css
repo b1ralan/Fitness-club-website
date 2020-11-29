@@ -1218,13 +1218,14 @@ nav.popup-menu .close-menu-btn img {
   margin-left: -65px;
   z-index: 1000;
 }
+
 .slider-dots ul {
   float: left;
 }
 .slider-dots ul button {
   width: 22px;
   height: 4px;
-  background-color: rgb(252, 5, 5);
+  background-color: #fff;
   border: none;
   border-radius: 2px;
   color: transparent;
@@ -1405,11 +1406,35 @@ nav.popup-menu .close-menu-btn img {
 }
 #gallery .gallery-slider {
   position: relative;
-  padding-left: 75px;
-  padding-right: 75px;
-  max-width: 900px;
+  height: 400px;
+  width: 100%;
   margin: 0 auto;
-  text-align: center;
+  display: block;
+}
+#gallery .gallery-slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+#gallery .gallery-slide img {
+  height: 400px;
+  width: 750px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+#gallery .gallery-slide-active {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 #gallery .gallery-slider .slide {
   margin: 0 auto !important;
@@ -1418,9 +1443,9 @@ nav.popup-menu .close-menu-btn img {
 #gallery .gallery-slider .slider-arrow {
   position: absolute;
   top: 50%;
-  margin-top: -8px;
-  margin-left: 70px;
-  margin-right: 70px;
+  margin-top: -10px;
+  margin-left: 115px;
+  margin-right: 115px;
   z-index: 100;
   cursor: pointer;
 }
@@ -1444,6 +1469,27 @@ nav.popup-menu .close-menu-btn img {
   left: 50%;
   margin-left: -65px;
   bottom: 5%;
+}
+#gallery .gallery-slider .slider-dots .dot {
+  cursor: pointer;
+  display: inline-block;
+  width: 24px;
+  height: 4px;
+  background-color: #fff;
+  border: none;
+  border-radius: 2px;
+  color: transparent;
+  margin-right: 8px;
+}
+#gallery .gallery-slider .slider-dots .dot-active {
+  background-color: #ffd11a;
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+#gallery .slider-dots .dot:hover {
+  background-color: #ffd11a;
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
 }
 #cards {
   padding-bottom: 4rem;
