@@ -24,7 +24,6 @@ galleryPhoto();
 
 // calc
 
-// calcClubCards();
 clubCards();
 
 // footer
