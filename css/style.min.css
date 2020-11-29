@@ -2191,7 +2191,6 @@ p.personal-data input[type='checkbox']:checked + label:before {
     display: none !important;
   }
   #gallery .gallery-slider .slider-dots {
-    background-color: rgba(79, 25, 52, 0.5);
     padding-top: 12px;
     padding-left: 5px;
     padding-right: 5px;
