@@ -9,6 +9,18 @@ const handelFormSubmit = (form) => {
   const statusMessage = document.createElement('div');
   statusMessage.style.cssText = 'font-size: 14px';
   statusMessage.style.color = '#ffd11a';
+  statusMessage.style.display = 'absolute';
+  statusMessage.style.textAlign = 'center';
+
+  const btn = form.querySelectorAll('[type="submit"]'),
+    checkbox = form.querySelectorAll('.checkbox'),
+    box = form.querySelectorAll('.box');
+
+  const checkboxMess = document.createElement('ul');
+  checkboxMess.style.cssText = 'font-size: 10px';
+  checkboxMess.style.color = 'red';
+  checkboxMess.style.display = 'absolute';
+  checkboxMess.style.textAlign = 'center';
 
   const formsName = document.querySelectorAll('.form-name');
 
@@ -18,6 +30,21 @@ const handelFormSubmit = (form) => {
     });
   }
 
+  for (const but of btn) {
+    for (const check of checkbox) {
+      for (const boxchek of box) {
+        but.addEventListener('click', () => {
+          if (!check.checked) {
+            boxchek.appendChild(checkboxMess);
+            checkboxMess.textContent = 'Заполните все поля и поставьте галочку';
+          } else if (check.checked) {
+            checkboxMess.textContent = '';
+          }
+        });
+      }
+    }
+  }
+
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -25,14 +52,7 @@ const handelFormSubmit = (form) => {
     let formData = new FormData(form);
     formData = Object.fromEntries(formData);
 
-    const checkbox = document.querySelectorAll('[type="checkbox"]');
-
-    if (checkbox !== 'false') {
-      console.log('test');
-    }
-
     statusMessage.textContent = loadMessage;
-
     const postData = (formData) =>
       fetch('./server.php', {
         method: 'POST',
@@ -48,7 +68,10 @@ const handelFormSubmit = (form) => {
           throw new Error('status network not 200');
         }
         successMesage.style.display = 'flex';
+        document.body.classList.add('no-scroll');
+        document.querySelector('html').classList.add('no-scroll');
         freeVisitForm.style.display = 'none';
+        checkboxMess.textContent = '';
         form.reset();
       })
       .catch((error) => {
@@ -59,11 +82,8 @@ const handelFormSubmit = (form) => {
     function deleteMess() {
       statusMessage.textContent = '';
     }
-    // function popupClose() {
-    //   document.querySelector('.popup').style.display = 'none';
-    // }
+
     setTimeout(deleteMess, 3000);
-    // setTimeout(popupClose, 5000);
   });
 };
 

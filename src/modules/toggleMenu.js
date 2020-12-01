@@ -57,7 +57,6 @@ const toggleMenu = () => {
   };
 
   bodyDelegate.addEventListener('click', (event) => {
-    console.log(event.target);
     // ВЫбор клуба
     if (event.target.closest('.clubs-list')) {
       handlerClubList();
