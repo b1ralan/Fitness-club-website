@@ -6,7 +6,7 @@ import carousel from './modules/carousel';
 import footer from './modules/footer';
 import galleryPhoto from './modules/galleryPhoto';
 import clubCards from './modules/clubCards';
-import freeVisitForm from './modules/freeVisitForm';
+import handelFormSubmit from './modules/handelFormSubmit';
 import maskPhone from './modules/maskPhone';
 
 //toggle Menu
@@ -38,11 +38,11 @@ const freeVisit = document.getElementById('form2'),
   footerForm = document.getElementById('footer_form'),
   cardOrder = document.getElementById('card_order');
 
-freeVisitForm(freeVisit);
-freeVisitForm(callBackForm);
-freeVisitForm(bannerFreeForm);
-freeVisitForm(footerForm);
-freeVisitForm(cardOrder);
+handelFormSubmit(freeVisit);
+handelFormSubmit(callBackForm);
+handelFormSubmit(bannerFreeForm);
+handelFormSubmit(footerForm);
+handelFormSubmit(cardOrder);
 
 //mask phone
 

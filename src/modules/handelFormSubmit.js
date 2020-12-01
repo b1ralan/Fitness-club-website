@@ -1,4 +1,4 @@
-const freeVisitForm = (form) => {
+const handelFormSubmit = (form) => {
   'use strict';
 
   const errorMessage = document.getElementById('thanks-error'),
@@ -67,4 +67,4 @@ const freeVisitForm = (form) => {
   });
 };
 
-export default freeVisitForm;
+export default handelFormSubmit;
