@@ -28,7 +28,7 @@ const handelFormSubmit = (form) => {
     const checkbox = document.querySelectorAll('[type="checkbox"]');
 
     if (checkbox !== 'false') {
-      console.log('PISOS');
+      console.log('test');
     }
 
     statusMessage.textContent = loadMessage;
