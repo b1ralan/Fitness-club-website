@@ -52,7 +52,11 @@
                   <span>Звоните круглосуточно!</span>
                   <p>+7 (800) 555-64-47</p>
                 </div>
-                <button class="btn callback-btn" data-popup="#callback_form">
+                <button
+                  class="btn callback-btn"
+                  data-popup="#callback_form"
+                  id="callback_form_open"
+                >
                   Перезвоните мне
                 </button>
               </div>
@@ -64,11 +68,11 @@
         <div class="wrapper">
           <ul class="hidden-small">
             <li><a href="index.html#clubs">Клубы</a></li>
-            <li class=""><a href="#services">Услуги</a></li>
-            <li class=""><a href="#cards">Клубные карты</a></li>
-            <li class=""><a href="#table">Расписание</a></li>
-            <li class=""><a href="#gallery">Галерея</a></li>
-            <li class=""><a href="#footer">Контакты</a></li>
+            <li class="scroll"><a href="#services">Услуги</a></li>
+            <li class="scroll"><a href="#cards">Клубные карты</a></li>
+            <li class="scroll"><a href="#table">Расписание</a></li>
+            <li class="scroll"><a href="#gallery">Галерея</a></li>
+            <li class="scroll"><a href="#footer">Контакты</a></li>
           </ul>
           <div class="menu-button hidden-large">
             <img src="images/menu-button.png" alt="" />
@@ -421,6 +425,7 @@
               <p class="input-text">
                 <input
                   name="name"
+                  class="form-name"
                   type="text"
                   required
                   placeholder="Ваше имя..."
@@ -430,9 +435,10 @@
                 <input
                   type="tel"
                   name="phone"
+                  class="tel"
                   id="callback_form-phone"
                   required
-                  placeholder="Ваш номер телефона..."
+                  placeholder="+7 (___) ___-__-__"
                 />
               </p>
               <div class="form-bottom">
@@ -589,13 +595,20 @@
               name="form_name"
               value=" Записаться на визит"
             />
-            <input name="name" type="text" required placeholder="Ваше имя..." />
+            <input
+              name="name"
+              type="text"
+              class="form-name"
+              required
+              placeholder="Ваше имя..."
+            />
             <input
               type="tel"
               name="phone"
               id="phone"
+              class="tel"
               required
-              placeholder="Ваш номер телефона..."
+              placeholder="+7 (___) ___-__-__"
             />
             <button name="send" class="btn" type="submit">Записаться</button>
             <p class="personal-data">
@@ -676,9 +689,10 @@
                     <input
                       type="tel"
                       name="phone"
+                      class="tel"
                       id="callback_footer_form-phone"
                       required=""
-                      placeholder="Ваш номер телефона..."
+                      placeholder="+7 (___) ___-__-__"
                     />
                   </p>
 
@@ -764,6 +778,7 @@
             <p class="input-text">
               <input
                 name="name"
+                class="form-name"
                 type="text"
                 required
                 placeholder="Ваше имя..."
@@ -773,9 +788,10 @@
               <input
                 type="tel"
                 name="phone"
+                class="tel"
                 id="callback_form1-phone"
                 required
-                placeholder="Ваш номер телефона..."
+                placeholder="+7 (___) ___-__-__"
               />
             </p>
             <p class="personal-data">
@@ -807,6 +823,7 @@
             <p class="input-text">
               <input
                 name="name"
+                class="form-name"
                 type="text"
                 required
                 placeholder="Ваше имя..."
@@ -816,9 +833,10 @@
               <input
                 type="tel"
                 name="phone"
+                class="tel"
                 id="callback_form2-phone"
                 required
-                placeholder="Ваш номер телефона..."
+                placeholder="+7 (___) ___-__-__"
               />
             </p>
             <p class="personal-data">
@@ -845,6 +863,35 @@
             Ваша заявка отправлена. <br />
             Мы свяжемся с вами в ближайшее время.
           </p>
+          <button class="btn close-btn">OK</button>
+        </div>
+      </div>
+    </div>
+    <div class="popup" id="thanks-error" style="display: none">
+      <div class="overlay"></div>
+      <div class="form-wrapper">
+        <div class="close-form">
+          <img src="images/close-icon.png" alt="close" class="close_icon" />
+        </div>
+        <div class="form-content">
+          <h4>Ошибка!</h4>
+          <p>
+            Упс... <br />
+            Что-то пошло не так
+          </p>
+          <button class="btn close-btn">OK</button>
+        </div>
+      </div>
+    </div>
+    <div class="popup" id="gift" style="display: none">
+      <div class="overlay"></div>
+      <div class="form-wrapper">
+        <div class="close-form">
+          <img src="images/close-icon.png" alt="close" class="close_icon" />
+        </div>
+        <div class="form-content">
+          <h4>У нас для вас есть подарок!</h4>
+          <p>Введите промо-код ТЕЛО2020 и получите скидку 30%</p>
           <button class="btn close-btn">OK</button>
         </div>
       </div>

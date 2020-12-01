@@ -1,20 +1,25 @@
 const toggleMenu = () => {
   'use strict';
   const bodyDelegate = document.querySelector('body');
+
   const ulList = document.querySelector('.list'),
     freeVisitForm = document.getElementById('free_visit_form'),
     callbackForm = document.getElementById('callback_form'),
     popupGift = document.getElementById('gift'),
     hiddenSmall = document.querySelectorAll('li > a '),
     popupMenu = document.querySelector('.popup-menu'),
-    toTop = document.getElementById('totop');
+    toTop = document.getElementById('totop'),
+    thanks = document.getElementById('thanks'),
+    thanksError = document.getElementById('thanks-error');
 
   function disableScroll() {
-    bodyDelegate.classList.add('no-scroll');
+    document.body.classList.add('no-scroll');
+    document.querySelector('html').classList.add('no-scroll');
   }
 
   function enableScroll() {
-    bodyDelegate.classList.remove('no-scroll');
+    document.body.classList.remove('no-scroll');
+    document.querySelector('html').classList.remove('no-scroll');
   }
 
   const handlerClubList = () => {
@@ -52,7 +57,7 @@ const toggleMenu = () => {
   };
 
   bodyDelegate.addEventListener('click', (event) => {
-    // console.log(event.target);
+    console.log(event.target);
     // ВЫбор клуба
     if (event.target.closest('.clubs-list')) {
       handlerClubList();
@@ -68,18 +73,20 @@ const toggleMenu = () => {
       disableScroll();
     } else if (
       event.target.closest('.close_icon') ||
-      event.target.closest('.overlay')
+      event.target.closest('.overlay') ||
+      event.target.closest('.close-btn')
     ) {
       freeVisitForm.style.display = 'none';
       enableScroll();
     }
     // Перезвоните мне
-    if (event.target.closest('.callback-btn')) {
+    if (event.target.closest('#callback_form_open')) {
       handlerCallback();
       disableScroll();
     } else if (
       event.target.closest('.close_icon') ||
-      event.target.closest('.overlay')
+      event.target.closest('.overlay') ||
+      event.target.closest('.close-btn')
     ) {
       callbackForm.style.display = 'none';
       enableScroll();
@@ -94,8 +101,12 @@ const toggleMenu = () => {
       event.target.closest('.close-btn')
     ) {
       popupGift.style.display = 'none';
+      thanks.style.display = 'none';
+      thanksError.style.display = 'none';
+      callbackForm.style.display = 'none';
       enableScroll();
     }
+
     // Плавный скрол из меню навигации
     if (event.target.closest('.scroll')) {
       event.preventDefault();

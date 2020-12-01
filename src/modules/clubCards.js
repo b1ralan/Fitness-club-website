@@ -9,6 +9,7 @@ const clubCards = () => {
     cardLetoMozaika = document.getElementById('card_leto_mozaika'),
     cardLetoSchelkovo = document.getElementById('card_leto_schelkovo'),
     club = document.getElementById('card_order');
+
   let promocode = 'ТЕЛО2020';
 
   club.addEventListener('click', () => {

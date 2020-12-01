@@ -752,10 +752,7 @@ body {
   overflow-x: hidden;
 }
 .no-scroll {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 .wrapper {
   max-width: 1170px;
@@ -1859,7 +1856,7 @@ footer .footer-bottom .right .socials .social-icon:hover a {
 }
 .popup .overlay {
   background-color: rgba(0, 0, 0, 0.7);
-  position: fixed;
+  position: fixed !important;
   top: 0;
   left: 0;
   width: 100vw;
@@ -2008,6 +2005,18 @@ p.personal-data input[type='checkbox']:checked + label:before {
   margin-top: 30px;
 }
 #thanks .form-content .close-btn {
+  margin-top: 15px;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+#thanks-error .form-content p {
+  font-size: 20px;
+  width: 90%;
+  color: #fff;
+  font-weight: 500;
+  margin-top: 30px;
+}
+#thanks-error .form-content .close-btn {
   margin-top: 15px;
   text-transform: uppercase;
   font-size: 20px;
