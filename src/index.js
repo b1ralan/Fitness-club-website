@@ -8,6 +8,7 @@ import galleryPhoto from './modules/galleryPhoto';
 import clubCards from './modules/clubCards';
 import handelFormSubmit from './modules/handelFormSubmit';
 import maskPhone from './modules/maskPhone';
+import submitFooterForm from './modules/submitFooterForm';
 
 //toggle Menu
 toggleMenu();
@@ -41,8 +42,9 @@ const freeVisit = document.getElementById('form2'),
 handelFormSubmit(freeVisit);
 handelFormSubmit(callBackForm);
 handelFormSubmit(bannerFreeForm);
-handelFormSubmit(footerForm);
 handelFormSubmit(cardOrder);
+
+submitFooterForm(footerForm);
 
 //mask phone
 

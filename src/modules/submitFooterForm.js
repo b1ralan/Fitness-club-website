@@ -1,4 +1,4 @@
-const handelFormSubmit = (form) => {
+const submitFooterForm = (form) => {
   'use strict';
 
   const loadMessage = 'Загрузка...',
@@ -11,33 +11,24 @@ const handelFormSubmit = (form) => {
   statusMessage.style.display = 'absolute';
   statusMessage.style.textAlign = 'center';
 
-  const clubName = form.querySelector('[name="club-name"]'),
-    checkbox = form.querySelector('.checkbox'),
-    box = form.querySelector('.box');
+  const checkClub = document.createElement('div');
+  checkClub.style.cssText = 'font-size: 14px';
+  checkClub.style.color = 'red';
+  checkClub.style.display = 'absolute';
+  checkClub.style.textAlign = 'center';
 
-  const checkboxMess = document.createElement('ul');
-  checkboxMess.style.cssText = 'font-size: 10px';
-  checkboxMess.style.color = 'red';
-  checkboxMess.style.display = 'absolute';
-  checkboxMess.style.textAlign = 'center';
-
-  const formsName = document.querySelectorAll('.form-name');
-
-  for (const formName of formsName) {
-    formName.addEventListener('input', () => {
-      formName.value = formName.value.replace(/[^а-яё ]/iu, '');
-    });
-  }
+  const clubMozaika = document.getElementById('footer_leto_mozaika'),
+    clubSchelkovo = document.getElementById('footer_leto_schelkovo');
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    if (!checkbox.checked) {
-      box.appendChild(checkboxMess);
-      checkboxMess.textContent = 'Подтвердите согласие на обработку даных';
+    if (!clubMozaika.checked && !clubSchelkovo.checked) {
+      form.appendChild(checkClub);
+      checkClub.textContent = 'Выберите клуб';
       return;
-    } else if (checkbox.checked) {
-      checkboxMess.textContent = '';
+    } else if (clubMozaika.checked || clubSchelkovo.checked) {
+      checkClub.textContent = '';
 
       form.appendChild(statusMessage);
       let formData = new FormData(form);
@@ -54,7 +45,7 @@ const handelFormSubmit = (form) => {
           document.body.classList.add('no-scroll');
           document.querySelector('html').classList.add('no-scroll');
 
-          checkboxMess.textContent = '';
+          checkClub.textContent = '';
           form.reset();
         })
         .catch((error) => {
@@ -80,4 +71,4 @@ const handelFormSubmit = (form) => {
     });
 };
 
-export default handelFormSubmit;
+export default submitFooterForm;
