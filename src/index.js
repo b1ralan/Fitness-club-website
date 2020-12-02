@@ -31,7 +31,7 @@ if (pageId === 'main') {
   clubCards();
 }
 
-// free visit form
+// handel Form Submit
 const freeVisit = document.getElementById('form2'),
   callBackForm = document.getElementById('form1'),
   bannerFreeForm = document.getElementById('banner-form'),
